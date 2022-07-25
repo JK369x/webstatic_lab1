@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(27,27,27);
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-size: small;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .card{
+        background: white;
+        width: 270px;
+        height: 450px;
+        margin: 10px;
+        border-radius: 15px;
+        padding-bottom: 10px;
+    }
+    .image-card{
+        background-color: aqua;
+        height: 170px;
+        margin-bottom: 15px;
+        background-size: cover;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .car-1{
+        background-image: url('https://www.rmutt.ac.th/wp-content/uploads/2022/07/20220723-TeacherCouncilMeeting-059.jpg');
+    }
+    .car-2{
+        background-image: url('https://www.rmutt.ac.th/wp-content/uploads/2022/07/20220720-pr-Youth-power-01.jpg');
+    }
+    .car-3{
+        background-image: url('https://www.rmutt.ac.th/wp-content/uploads/2022/07/20220704-RMUT-TRM-Day-29.jpg');
+    }
+    .car-4{
+        background-image: url('https://www.rmutt.ac.th/wp-content/uploads/2022/07/20220704-OpenSky-139.jpg');
+    }
+    .car-5{
+        background-image: url('https://www.rmutt.ac.th/wp-content/uploads/2022/07/20220705-sdrmutt.jpeg');
+    }
+    .car-6{
+        background-image: url('https://www.rmutt.ac.th/wp-content/uploads/2022/07/20220704-RMUT-TRM-Day-70.jpg');
+    }
+
+    .card h3{
+        padding: 10px;
+    }
+
+    .card p{
+        padding: 10px;
+        margin-bottom: 20px;
+        height: 100px;
+    }
+    header{
+        text-align: center;
+        width: 53%;
+        height: 100px;
+        margin: auto;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        padding: 5px 5px;
+        margin-top: 10px;
+        background-image: url('data:image/jpeg;base64,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');
+    }
+
+    .card a {
+        background-color: black;
+        color: white;
+        padding: 15px 20px;
+        display: block;
+        text-align: center;
+        margin: 0px 50px;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+
+    .card:hover{
+        background-color: rgb(62,62,62);
+        color: white;
+        cursor: pointer;
+        transform: scale(1.03);
+        transition: all is ease;
+    }
+</style>
+<body>
+   
+    <header>
+        <!-- <h1>RMUTT News</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor sit neque nostrum praesentium recusandae nulla facilis, asperiores voluptatem non temporibus error, molestias odio in, quasi id commodi necessitatibus consequatur. Dolore.</p> -->
+        
+    </header>
+    <section class="container">
+    <section class="card">
+        <div class="image-card car-1"></div>
+        <h3>การประชุมประธานสภาอาจารย์มหาวิทยาลัยแห่งประเทศไทย (ปอมท.)</h3>
+        <p>
+            รศ.ดร.สมหมาย  ผิวสอาด  อธิการบดีมหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี  เป็นประธานกล่าวเปิดการประชุมประธานสภาอาจารย์มหาวิทยาลัยแห่งประเทศไทย (ปอมท.) โดยมีนายสาโรจน์  อนันตอวยพร ประธานสภาคณาจารย์และข้าราชการ 
+        </p>
+        <a href="https://www.rmutt.ac.th/content/53975">READ MORE..</a>
+    </section>
+    <section class="card">
+        <div class="image-card car-2"></div>
+        <h3>YOUTH IN CHARGE LEADERSHIP ACADEMY SEASON 2</h3>
+        <p>
+                    ถ้าคุณคือเยาวชนที่มีโครงการ ไอเดีย หรือความสนใจเกี่ยวกับ SOFT POWER
+        ต้องการเวทีในการแสดงศักยภาพ และพื้นที่ในการทำงานร่วมกับเครือข่ายเยาวชนและองค์กรชั้นนำ
+        ที่ขับเคลื่อน SOFT POWER ในมิติต่างๆ...<br>
+        <br>
+        
+        </p>
+        <a href="https://www.rmutt.ac.th/content/53956">READ MORE..</a>
+    </section>
+    <section class="card">
+        <div class="image-card car-3"></div>
+        <h3>9 มทร.ร่วมกับ บพค.สอวช.จัดกิจกรรม RMUT-TRM DAY</h3>
+        <p>
+            ศ.นพ.สิริฤกษ์ ทรงศิวิไล ปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม มอบหมายให้ รศ.ดร.สมหมาย ผิวสอาดในฐานะประธานที่ประชุมอธิการบดีมหาวิทยาลัยเทคโนโลยีราชมงคล (ทปอ.มทร.) 
+        </p>
+        <a href="https://www.rmutt.ac.th/content/53780">READ MORE..</a>
+
+    </section>
+
+
+    </section>
+    
+</section>
+<section class="container">
+    <section class="card">
+        <div class="image-card car-4"></div>
+        <h3>โครงการ “Open Sky Challenging Project with BATC </h3>
+        <p>
+            รศ.ดร.สมหมาย ผิวสอาด อธิการบดีมหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี (มทร.ธัญบุรี) เผยว่า มทร.ธัญบุรี ได้จัดโครงการ “Open Sky Challenging Project with BATC : ค้นฟ้า
+        </p>
+        <a href="https://www.rmutt.ac.th/content/53746">READ MORE..</a>
+    </section>
+    <section class="card">
+        <div class="image-card car-5"></div>
+        <h3>ขอแสดงความยินดีกับนายบัณฑิต ช่วงไชย</h3>
+        <p>
+            ขอแสดงความยินดีกับ
+            นายบัณฑิต ช่วงไชย (มอส)
+            คณะครุศาสตร์อุตสาหกรรม สาขาเทคโนโลยีและสื่อสารการศึกษา
+            ได้รับรางวัลรองชนะเลิศอันดับ 2 (เหรียญทองแดง) วิ่ง 100 เมตร
+         
+        
+        </p>
+        <a href="https://www.rmutt.ac.th/content/53772">READ MORE..</a>
+    </section>
+    <section class="card">
+        <div class="image-card car-6"></div>
+        <h3>พิธีเปิดโครงการสัมมนาวิชาการ (RMUT-TRM Day)</h3>
+        <p>
+            ศ.นพ.สิริฤกษ์ ทรงศิวิไล ปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม มอบหมายให้ รศ.ดร.สมหมาย ผิวสอาด ในฐานะประธานที่ประชุมอธิการบดีมหา
+        </p>
+        <a href="https://www.rmutt.ac.th/content/53780">READ MORE..</a>
+
+    </section>
+
+
+    </section>
+    
+</section>
+
+</body>
+</html>
